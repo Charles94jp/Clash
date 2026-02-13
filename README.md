@@ -85,8 +85,41 @@ https://testingcf.jsdelivr.net/gh/Charles94jp/Clash@master/Custom_Clash.ini
 
 ## 3. 特别的
 
-内核流量：
+**👉内核流量：**
 
 1. openclash开启`实验性：绕过指定区域 IP`绕过中国大陆后，国内流量不会过核心，在zashboard连接中就看不到了
 
 2. clash verge系统代理在Windows代理设置处设置了局域网IP不代理，我们也可以追加一些内外域名到其中，可以在clash上设置。这些流量不会经过内核，而中国大陆域名是会过核心的，会命中大陆直连的规则。
+
+
+
+**👉cdn加速：**
+
+加速github
+
+1. Clash Verge不需要，因为订阅转换服务器是`api.dler.io`，也可以改用`api.asailor.org`，由它们去请求GitHub
+2. openclash需要用到cdn加速，确保没开启服务时能更新。
+
+值得注意的是cdn通常n~24小时更新一次，想立马更新就换域名：testingcf.jsdelivr.net、fastly.jsdelivr.net
+
+
+
+**👉重复代理问题：**
+
+手机圈x、Loon、surge连接家里openclash wifi会不会重复代理？
+
+正常情况不会，因为目前机场用的是专线，需要先在国内访问入口服务器，再通过专线到国外出口服务器，再去目标网站服务器。openclash看来你就是去往国内入口服务器。
+
+不正常的情况也可能发生
+
+原因：机场提供了回国节点，意思是从国外穿回国内，是反的，大陆不能使用
+
+openclash模式下，手机的代理app Loon通过url-test发现回国节点延迟最低，选了它，而它必须先直连入口服务器，而回国节点入口服务器在海外，直接访问，因为有openclash，成功了
+
+流量：loon（去回国节点入口） - openclash（代理）- 国内入口 - 国外出口 - 回国节点入口
+
+到这一步，如果继续回国，就会导致无法访问spotify的
+
+但是，如果这个回国节点的入口聪明的话，就不会发到国内，而是直接访问spotify，就访问通了。这里就多了一次过openclash内核代理，过回国节点入口
+
+解决办法：loon排除掉回国节点、非大陆使用节点。openclash自定义规则rules中指定你机场的入口为直连，打开订阅文件就能看到机场的入口地址
