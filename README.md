@@ -1,14 +1,41 @@
 <h1 style="text-align: center;">OpenClash & Clash Verge Configuration</h1>
 
-自用clash配置，适用于 openwrt([immortalwrt](https://github.com/immortalwrt/immortalwrt)) 上的 [OpenClash](https://github.com/vernesong/OpenClash) 和 终端 上的 [clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev)
+自用clash配置，适用于 [clash_meta](https://github.com/MetaCubeX/mihomo) 内核
 
-实现在订阅中分流，前者可以使用Geo数据库，而后者只能在订阅中拉远程的list，所以有所不同
+包括openwrt([immortalwrt](https://github.com/immortalwrt/immortalwrt)) 上的 [OpenClash](https://github.com/vernesong/OpenClash) 和 终端 上的 [clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev)
 
 <br></br>
 
-## 1.OpenClash
+## 1. Clash Verge
 
-### 1.1 概述与准备
+以Windows为例
+
+1. 打开订阅页面，双击`全局扩展覆写配置`，粘贴
+
+```yaml
+#自定义 geodata url
+geox-url:
+  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.metadb"
+
+geodata-mode: true # 使用geoip.dat代替Country.mmdb
+geo-auto-update: true # 是否自动更新 geodata
+geo-update-interval: 24 # 更新间隔，单位：小时
+```
+
+2. 设置，单击更新GeoData
+3. 将机场订阅url编码后插入以下url
+
+```
+https://api.dler.io/sub?target=clash&url=【url编码后的机场订阅地址】&config=https://raw.githubusercontent.com/Charles94jp/Clash/master/Custom_Clash.ini
+```
+
+
+
+## 2.OpenClash
+
+### 2.1 概述与准备
 
 [OpenClash配置示例及订阅转换模板，无需套娃，无泄漏](https://github.com/Aethersailor/Custom_OpenClash_Rules)
 
@@ -36,7 +63,7 @@
 
 <br></br>
 
-### 1.2 订阅转换
+### 2.2 订阅转换
 
 编辑订阅
 
@@ -47,14 +74,12 @@
 模板拉到最下方选自定义
 
 ```
-https://testingcf.jsdelivr.net/gh/Charles94jp/Clash@master/open_clash.ini
+https://testingcf.jsdelivr.net/gh/Charles94jp/Clash@master/Custom_Clash.ini
 ```
 
 启用：UDP支持、跳过证书验证、使用规则集
 
 
 
-## 2. Clash Verge
 
-以Windows为例
 
