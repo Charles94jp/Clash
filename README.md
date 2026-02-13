@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">OpenClash & Clash Verge Configuration</h1>
+<h1 style="text-align: center;">Clash配置与订阅转换</h1>
 
 自用clash配置，适用于 [clash_meta](https://github.com/MetaCubeX/mihomo) 内核
 
@@ -31,7 +31,7 @@ geo-update-interval: 24 # 更新间隔，单位：小时
 https://api.dler.io/sub?target=clash&url=【url编码后的机场订阅地址】&config=https://raw.githubusercontent.com/Charles94jp/Clash/master/Custom_Clash.ini
 ```
 
-
+<br></br>
 
 ## 2.OpenClash
 
@@ -50,7 +50,7 @@ https://api.dler.io/sub?target=clash&url=【url编码后的机场订阅地址】
 
 完成这两个步骤再按wiki从头设置。
 
-<br></br>
+
 
 以上设置实现了dns无套娃，采用的是运营商dns服务器
 
@@ -81,5 +81,12 @@ https://testingcf.jsdelivr.net/gh/Charles94jp/Clash@master/Custom_Clash.ini
 
 
 
+<br></br>
 
+## 3. 特别的
 
+内核流量：
+
+1. openclash开启`实验性：绕过指定区域 IP`绕过中国大陆后，国内流量不会过核心，在zashboard连接中就看不到了
+
+2. clash verge系统代理在Windows代理设置处设置了局域网IP不代理，我们也可以追加一些内外域名到其中，可以在clash上设置。这些流量不会经过内核，而中国大陆域名是会过核心的，会命中大陆直连的规则。
