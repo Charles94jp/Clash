@@ -83,7 +83,7 @@ https://testingcf.jsdelivr.net/gh/Charles94jp/Clash@master/Custom_Clash.ini
 
 <br></br>
 
-## 3. 特别的
+## 3. 注意事项
 
 **👉内核流量：**
 
@@ -123,3 +123,15 @@ openclash模式下，手机的代理app Loon通过url-test发现回国节点延�
 但是，如果这个回国节点的入口聪明的话，就不会发到国内，而是直接访问spotify，就访问通了。这里就多了一次过openclash内核代理，过回国节点入口
 
 解决办法：loon排除掉回国节点、非大陆使用节点。openclash自定义规则rules中指定你机场的入口为直连，打开订阅文件就能看到机场的入口地址
+
+
+
+## 4. 特别感谢
+
+| 作者         | 仓库                                                         | 备注                         |
+| ------------ | ------------------------------------------------------------ | ---------------------------- |
+| Aethersailor | [Custom_OpenClash_Rules](https://github.com/Aethersailor/Custom_OpenClash_Rules) | openclash配置\|订阅转换模板  |
+| v2fly        | [domain-list-community](https://github.com/v2fly/domain-list-community) | GeoSite数据源                |
+| Loyalsoldier | [v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) | Geo dat数据整合生成          |
+| MetaCubeX    | [meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat) | 同上，同时作者还是内核开发者 |
+
