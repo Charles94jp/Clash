@@ -31,6 +31,8 @@ geo-update-interval: 24 # 更新间隔，单位：小时
 https://api.dler.io/sub?target=clash&url=【url编码后的机场订阅地址】&config=https://raw.githubusercontent.com/Charles94jp/Clash/master/Custom_Clash.ini
 ```
 
+订阅地址可以填写两个，用`|`分开，并根据节点名称调整.ini文件中的正则，做到主订阅，备用订阅切换，聚合多个机场
+
 <br></br>
 
 ## 2.OpenClash
@@ -65,11 +67,11 @@ https://api.dler.io/sub?target=clash&url=【url编码后的机场订阅地址】
 
 ### 2.2 订阅转换
 
-编辑订阅
+编辑订阅，可以**输入两个地址，并根据节点名称调整.ini文件中的正则**，做到主订阅，备用订阅切换，聚合多个机场
 
 在线订阅转换
 
-服务器api.asailor.org
+服务器[api.asailor.org](https://github.com/Aethersailor/SubConverter-Extended)
 
 模板拉到最下方选自定义
 
@@ -79,7 +81,7 @@ https://testingcf.jsdelivr.net/gh/Charles94jp/Clash@master/Custom_Clash.ini
 
 启用：UDP支持、跳过证书验证、使用规则集
 
-
+更新订阅时可以在日志中看到请求订阅的url
 
 <br></br>
 
